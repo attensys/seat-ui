@@ -1,60 +1,34 @@
-import { useState } from 'react'
+import Seat from '../components/Seat'
 
 export default function Home() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="text-center">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">
-        Welcome to Seat UI
-      </h1>
+      <h1 className="text-4xl font-bold text-gray-900 mb-8">Seat Selection</h1>
 
-      <div className="max-w-2xl mx-auto mb-8">
-        <p className="text-lg text-gray-600 mb-6">
-          A modern React application built with Bun, Vite, TypeScript, and
-          Tailwind CSS.
-        </p>
+      <div className="w-full">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h2 className="text-2xl font-semibold mb-6">Available Seats</h2>
 
-        <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Interactive Counter</h2>
-          <div className="flex items-center justify-center space-x-4">
-            <button
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
-              onClick={() => setCount(count - 1)}
-            >
-              -
-            </button>
-            <span className="text-3xl font-bold text-gray-800 min-w-[3rem]">
-              {count}
-            </span>
-            <button
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
-              onClick={() => setCount(count + 1)}
-            >
-              +
-            </button>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+            <Seat seatNumber="A1" isAvailable={true} />
+            <Seat seatNumber="A2" isAvailable={true} />
+            <Seat seatNumber="A3" isAvailable={false} />
+            <Seat seatNumber="A4" isAvailable={true} />
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-xl font-semibold mb-2">⚡ Fast</h3>
-            <p className="text-gray-600">
-              Built with Bun for lightning-fast package management and
-              development.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-xl font-semibold mb-2">🎨 Modern</h3>
-            <p className="text-gray-600">
-              Styled with Tailwind CSS for beautiful, responsive design.
-            </p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-xl font-semibold mb-2">🔧 TypeScript</h3>
-            <p className="text-gray-600">
-              Full TypeScript support for better development experience.
-            </p>
+          <div className="mt-8 flex justify-center space-x-6 text-sm">
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-blue-500 rounded mr-2"></div>
+              <span className="text-gray-900 font-medium">Available</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-green-500 rounded mr-2"></div>
+              <span className="text-gray-900 font-medium">Selected</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-4 h-4 bg-red-500 rounded mr-2"></div>
+              <span className="text-gray-900 font-medium">Occupied</span>
+            </div>
           </div>
         </div>
       </div>
