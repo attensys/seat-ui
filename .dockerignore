@@ -1,0 +1,92 @@
+# Include any files or directories that you don't want to be copied to your
+# container here (e.g., local build artifacts, temporary files, etc.).
+#
+# For more help, visit the .dockerignore file reference guide at
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+
+**/.DS_Store
+**/__pycache__
+**/.venv
+**/.classpath
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/.project
+**/.settings
+**/.toolstarget
+**/.vs
+**/.vscode
+**/*.*proj.user
+.idea
+*.swp
+*.swo**/bin
+**/charts
+# Logs**/docker-compose*
+*.log**/compose*
+npm-debug.log***/Dockerfile*
+yarn-debug.log***/node_modules
+yarn-error.log***/npm-debug.log
+bun-debug.log***/obj
+**/secrets.dev.yaml
+# Runtime data**/values.dev.yaml
+pidsLICENSE
+*.pidREADME.md
+*.seed# Dependencies
+*.pid.locknode_modules
+.bun
+# Coverage directory used by tools like istanbul
+coverage# Build output
+dist
+# OS generated filesbuild
+.DS_Store
+.DS_Store?# Development files
+._*.env.local
+.Spotlight-V100.env.development
+.Trashes.env.test
+ehthumbs.db
+Thumbs.db# Git
+.git
+# Documentation.gitignore
+README*.md.github
+DEVELOPMENT.md
+CHANGELOG.md# IDE
+LICENSE.vscode
+**/*.dbmdl
+# Docker**/*.jfm
+Dockerfile*
+docker-compose*.yml
+.dockerignore.dockerignoredocker-compose*.ymlDockerfile*# DockerLICENSECHANGELOG.mdDEVELOPMENT.mdREADME*.md# DocumentationThumbs.dbehthumbs.db.Trashes.Spotlight-V100._*.DS_Store?.DS_Store# OS generated filescoverage# Coverage directory used by tools like istanbul*.pid.lock*.seed*.pidpids# Runtime databun-debug.log*yarn-error.log*yarn-debug.log*npm-debug.log**.log# Logs*.swo**/bin
+**/charts
+**/docker-compose*
+**/compose*
+**/Dockerfile*
+**/node_modules
+**/npm-debug.log
+**/obj
+**/secrets.dev.yaml
+**/values.dev.yaml
+LICENSE
+README.md
+# Dependencies
+node_modules
+.bun
+
+# Build output
+dist
+build
+
+# Development files
+.env.local
+.env.development
+.env.test
+
+# Git
+.git
+.gitignore
+.github
+
+# IDE
+.vscode
+.idea
+*.swp
