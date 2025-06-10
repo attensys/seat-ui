@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+bun.lock
+
+# Build outputs
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache and temp files
+.vscode/
+.DS_Store
+*.log
+
+# Package manager files
+package-lock.json
+yarn.lock
+
+# Docker files
+Dockerfile
+docker-compose.yml
+
+# Config files that should not be formatted
+.eslintrc.cjs
+vite.config.ts
+tailwind.config.js
+postcss.config.js
