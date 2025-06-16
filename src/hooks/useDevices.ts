@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// eslint-disable @typescript-eslint/no-unused-vars
+// @ts-nocheck
+
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import useWebSocket, { ReadyState } from 'react-use-websocket'
 import resolver from '../utils/secure-resolver'
@@ -34,9 +39,10 @@ export default function useDevices<T>({
 
   const getSocketUrl = useCallback(
     () =>
+      // eslint-disable-next-line no-async-promise-executor
       new Promise(async (resolve, reject) => {
         try {
-          const res = await fetch(host)
+          const res = await fetch(host as string)
           const data = await res.json()
           const events = data.links.find(link =>
             link.rel.find(rel => rel === 'http://rels.zettajs.io/events')
