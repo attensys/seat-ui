@@ -1,30 +1,38 @@
 import Seat from '../components/Seat'
+import useDevices from '../hooks/useDevices'
 
-export default function Home() {
+interface HomeProps {
+  host: string
+}
+
+export default function Home({ host }: HomeProps) {
+  const [seats] = useDevices({
+    host,
+    query: `where type="seat"`,
+  })
+
   return (
     <div className="text-center">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8">Seat Selection</h1>
-
       <div className="w-full">
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-semibold mb-6">Available Seats</h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
-            <Seat seatNumber="A1" isAvailable={true} />
-            <Seat seatNumber="A2" isAvailable={true} />
-            <Seat seatNumber="A3" isAvailable={false} />
-            <Seat seatNumber="A4" isAvailable={true} />
+        <div className="bg-white rounded-lg shadow-lg p-4">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-6 justify-items-center">
+            {seats.map(seat => (
+              <Seat
+                key={seat.id}
+                seatNumber={seat.operatorId}
+                isAvailable={seat.cushionCategory === 0}
+                capacitance={seat.cushionTopCapacitance}
+                baseline={seat.baseline}
+              />
+            ))}
           </div>
 
-          <div className="mt-8 flex justify-center space-x-6 text-sm">
-            <div className="flex items-center">
-              <div className="w-4 h-4 bg-blue-500 rounded mr-2"></div>
-              <span className="text-gray-900 font-medium">Available</span>
-            </div>
+          <div className="mt-2 flex justify-center space-x-6 text-sm">
             <div className="flex items-center">
               <div className="w-4 h-4 bg-green-500 rounded mr-2"></div>
-              <span className="text-gray-900 font-medium">Selected</span>
+              <span className="text-gray-900 font-medium">Available</span>
             </div>
+
             <div className="flex items-center">
               <div className="w-4 h-4 bg-red-500 rounded mr-2"></div>
               <span className="text-gray-900 font-medium">Occupied</span>
@@ -35,3 +43,4 @@ export default function Home() {
     </div>
   )
 }
+ 
