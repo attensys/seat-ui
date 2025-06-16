@@ -18,13 +18,13 @@ const defaultMenuItems: MenuItem[] = [
   { label: 'Profile', href: '#' },
   { label: 'Help', href: '#' },
   { label: '', divider: true },
-  { label: 'Sign out', href: '#' }
+  { label: 'Sign out', href: '#' },
 ]
 
-export default function HamburgerMenu({ 
-  className = '', 
+export default function HamburgerMenu({
+  className = '',
   menuItems = defaultMenuItems,
-  showHostInput = true
+  showHostInput = true,
 }: HamburgerMenuProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [hostValue, setHostValue] = useState('')
@@ -131,7 +131,7 @@ export default function HamburgerMenu({
               </div>
             </>
           )}
-          {menuItems.map((item, index) => (
+          {menuItems.map((item, index) =>
             item.divider ? (
               <hr key={index} className="my-1 border-gray-200" />
             ) : (
@@ -144,7 +144,7 @@ export default function HamburgerMenu({
                 {item.label}
               </a>
             )
-          ))}
+          )}
         </div>
       )}
     </div>
