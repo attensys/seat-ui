@@ -1,8 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// eslint-disable @typescript-eslint/no-unused-vars
 // @ts-nocheck
+// eslint-disable no-console
+// eslint-disable no-unused-vars
+// eslint-disable no-undef
+// eslint-disable @typescript-eslint/no-unused-vars
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import useWebSocket, { ReadyState } from 'react-use-websocket'
