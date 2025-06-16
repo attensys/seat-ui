@@ -1,8 +1,17 @@
+import { Key } from 'react'
 import Seat from '../components/Seat'
 import useDevices from '../hooks/useDevices'
 
 interface HomeProps {
   host: string
+}
+
+interface SeatType {
+  id: Key | null | undefined
+  operatorId: string
+  cushionCategory: number
+  cushionTopCapacitance?: number
+  baseline?: number
 }
 
 export default function Home({ host }: HomeProps) {
@@ -16,7 +25,7 @@ export default function Home({ host }: HomeProps) {
       <div className="w-full">
         <div className="bg-white rounded-lg shadow-lg p-4">
           <div className="grid grid-cols-1 md:grid-cols-1 gap-6 justify-items-center">
-            {seats.map(seat => (
+            {seats.map((seat: SeatType) => (
               <Seat
                 key={seat.id}
                 seatNumber={seat.operatorId}
