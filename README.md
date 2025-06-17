@@ -50,7 +50,8 @@ bun run preview
 
 ## Docker Deployment
 
-Our Docker images support multiple architectures including **x86_64** (Intel/AMD) and **ARM64** (Apple Silicon, Raspberry Pi 4).
+Our Docker images support multiple architectures including **x86_64** (Intel/AMD) and **ARM64**
+(Apple Silicon, Raspberry Pi 4).
 
 ### Using Docker Hub Image
 
