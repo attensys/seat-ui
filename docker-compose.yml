@@ -1,6 +1,11 @@
 services:
   seat-ui:
-    build: .
+    # Multi-architecture image supporting AMD64 and ARM64
+    image: attensys/seat-ui:latest
+    # Uncomment to build locally instead of using pre-built image:
+    # build: .
+    # Uncomment to specify platform for ARM64 devices (like Raspberry Pi 4):
+    # platform: linux/arm64
     ports:
       - "80:80"
     restart: unless-stopped

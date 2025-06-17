@@ -50,11 +50,31 @@ bun run preview
 
 ## Docker Deployment
 
+Our Docker images support multiple architectures including **x86_64** (Intel/AMD) and **ARM64** (Apple Silicon, Raspberry Pi 4).
+
 ### Using Docker Hub Image
 
 ```bash
-# Pull and run the latest image
+# Pull and run the latest image (auto-selects your platform)
 docker run -p 80:80 attensys/seat-ui:latest
+
+# For Raspberry Pi 4 or other ARM64 devices, specify platform if needed:
+docker pull --platform linux/arm64 attensys/seat-ui:latest
+docker run --platform linux/arm64 -p 80:80 attensys/seat-ui:latest
+```
+
+### Multi-Architecture Support
+
+- ✅ **linux/amd64** - Intel/AMD 64-bit systems
+- ✅ **linux/arm64** - ARM 64-bit (Apple Silicon, Raspberry Pi 4, etc.)
+
+For detailed multi-architecture information, see [MULTI_ARCH_DOCKER.md](./MULTI_ARCH_DOCKER.md).
+
+### Test Multi-Architecture Setup
+
+```bash
+# Run our test script to verify multi-arch support
+./test-multiarch.sh
 ```
 
 ### Building Locally
@@ -103,7 +123,7 @@ To set up the CI/CD pipeline for your own repository:
 
 2. **Configure Docker Hub secrets** in your GitHub repository settings:
 
-   ```
+   ```env
    DOCKER_USERNAME - Your Docker Hub username
    DOCKER_PASSWORD - Your Docker Hub access token
    ```
@@ -144,7 +164,7 @@ To set up the CI/CD pipeline for your own repository:
 
 ## Architecture
 
-```
+```text
 src/
 ├── components/          # Reusable UI components
 │   ├── Header.tsx      # Navigation header
